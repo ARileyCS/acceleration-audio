@@ -88,11 +88,15 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-audioPlayer.addEventListener(audioPlayer.currentTime === audioPlayer.duration, () => {
-  currentTrack += 1;
+audioPlayer.addEventListener("ended", () => {
+  if (currentTrack === songs.length - 1)
+    currentTrack = 0; 
+  else
+    currentTrack++;
   audioPlayer.src = `${baseURL}/${songs[currentTrack].file}`;
   audioPlayer.load();
   audioPlayer.play();
+  
 })
 
 
