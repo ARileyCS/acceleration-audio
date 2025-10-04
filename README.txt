@@ -20,6 +20,6 @@ There are keyboard shortcuts for
 - Playback speed increases during the duration of a song. ✅
 - Playback speed for each song starts at 1.0x ✅
 - Playback speed increases at a rate you decide ✅
-- The current playback rate is clearly visible to the user
+- The current playback rate is clearly visible to the user ✅
 
 Use Tailwind for styling

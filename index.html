@@ -5,50 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Acceleration Audio | The global leader in accelerating music</title>
 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Rationale&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body>
-    <h1>Acceleration Audio</h1>
+  <body class="bg-black text-purple-700 font-body">
+    <h1 class="text-3xl bg-purple-200 p-5 flex justify-center font-headings font-bold">Acceleration Audio</h1>
 
-    <i data-lucide="x"></i>
-    <i data-lucide="menu"></i>
+    <!-- <i data-lucide="x"></i>
+    <i data-lucide="menu"></i> -->
 
-    <section class="flex justify-center" id="attribution">
-      <img class="w-50 h-50 self-center" src="" alt="" id="albumArt">
+    <section class="m-10 flex flex-col justify-center">
+      <img class="w-50 h-50 self-center border-5 border-purple-500 rounded-sm" src="albumart/Aidan.jpg" alt="" id="albumArt">
+      <p class="self-center m-2 font-body font-medium" id="attribution">Aidan</p>
     </section>
 
-    <section class="flex flex-col" id="controls">
-      <button id="playButton">
+    <p class="m-5" id="speed">
+      Current Playback Rate: 1.0
+    </p>
+
+    <section class="flex bg-purple-200 p-2 mt-5 justify-center" id="controls">
+      
+      <button class="mx-1" id="skipBackwardButton">
+        <i data-lucide="skip-back" class="w-10 h-10">
+        </i>
+      </button>
+      
+      <button class="mx-1" id="playButton">
         <i data-lucide="play" class="w-10 h-10"></i>
       </button>
 
-      <a class="hidden" href="">
+      <button class="mx-1" id="pauseButton">
+        <i data-lucide="pause" class=" w-10 h-10">
+        </i>
+      </button>
+
+      <button class="mx-1" id="skipForwardButton">
+        <i data-lucide="skip-forward" class=" w-10 h-10">
+        </i>
+      </button>
+
+
+      <!-- <a class="hidden" href="">
         <i data-lucide="play" class="text-transparent fill-amber-600"></i>
       </a>
 
       <a class="hidden" href="">
         <i data-lucide="play" class="text-amber-600 fill-transparent"></i>
-      </a>
+      </a> -->
 
       <!-- <div class="icon-play"></div> -->
-      <button id="pauseButton">
-        <i data-lucide="pause" class="text-transparent fill-amber-600 w-10 h-10">
-        </i>
-      </button>
+      
 
-      <button class="hidden" id="pauseButton2">
+      <!-- <button class="hidden" id="pauseButton2">
         <i data-lucide="pause" class="text-amber-600 fill-transparent"> </i>
-      </button>
-
-      <button id="skipForwardButton">
-        <i data-lucide="skip-forward" class=" w-10 h-10">
-        </i>
-      </button>
-
-      <button id="skipBackwardButton">
-        <i data-lucide="skip-back" class="w-10 h-10">
-        </i>
-      </button>
+      </button> -->
+      
     </section>
 
     
@@ -56,18 +70,18 @@
 
     <!-- progress bar -->
 
-    <p id="speed">
-      Current Playback Rate: 1.0
-    </p>
-    <p class="">
-      <progress id="progress" value="0" max="1" style="width:100%"></progress>
+    
 
-      <div id="custom-progress" class="w-full h-8 bg-amber-100 transition-all">
-        <div id="custom-progress-bar" class="w-0 h-8 bg-amber-500 z-10"></div>
+
+    <p class="">
+      <progress class="hidden" id="progress" value="0" max="1" style="width:100%"></progress>
+
+      <div id="custom-progress" class="w-full h-8 bg-purple-50 transition-all">
+        <div id="custom-progress-bar" class="w-0 h-8 bg-purple-500 z-10 rounded-r-sm"></div>
       </div>
     </p>
 
-    <audio src="" id="audioPlayer" controls></audio>
+    <audio class="hidden" src="" id="audioPlayer" controls></audio>
 
     <script src="main.js"></script>
 

@@ -4,20 +4,23 @@ const pauseButton = document.getElementById("pauseButton");
 const progressBar = document.getElementById("progress");
 const customProgressBar = document.getElementById("custom-progress-bar");
 const speedDisplay = document.getElementById("speed");
+const album = document.getElementById("albumArt");
+const attribution = document.getElementById("attribution");
 
 const baseURL = "/songs";
+const artURL = "/albumart";
 
 let currentTrack = 0;
 
 // the songs
 const songs = [
-  { file: "Aidan.mp3", albumArt: "Aiden.jpg" },
-  { file: "autumn_sun.mp3", albumArt: "BestPart.jpg" },
-  { file: "best_part_of_me.mp3", albumArt: "BestPart.jpg" },
-  { file: "Better Days - LAKEY INSPIRED.mp3", albumArt: "Better Days.jpg" },
-  { file: "just_relax.mp3", albumArt: "justRelax_img.jpeg" },
-  { file: "paranormal-is-real-leonell-cassio.mp3", albumArt: "paranormal_real_500.jpg" },
-  { file: "Polarity.mp3", albumArt: "Polarity.jpg" }
+  { file: "Aidan.mp3", albumArt: "Aidan.jpg", name: "Aidan" },
+  { file: "autumn_sun.mp3", albumArt: "autumn_sun.png", name: "Autumn Sun" },
+  { file: "best_part_of_me.mp3", albumArt: "BestPart.jpg", name: "Best Part of Me" },
+  { file: "Better Days - LAKEY INSPIRED.mp3", albumArt: "Better Days.jpg", name: "Better Days - LAKEY INSPIRED" },
+  { file: "just_relax.mp3", albumArt: "justRelax_img.jpeg", name: "Just Relax" },
+  { file: "paranormal-is-real-leonell-cassio.mp3", albumArt: "paranormal_real_500.jpg", name: "Paranormal is Real"  },
+  { file: "Polarity.mp3", albumArt: "Polarity.jpg", name: "Polarity"  }
 ];
 
 // The play button stuff
@@ -96,10 +99,17 @@ audioPlayer.addEventListener("ended", () => {
     currentTrack = 0; 
   else
     currentTrack++;
+  
+  album.src = `${artURL}/${songs[currentTrack].albumArt}`;
+  attribution.textContent = songs[currentTrack].name
+
   audioPlayer.src = `${baseURL}/${songs[currentTrack].file}`;
   audioPlayer.load();
   audioPlayer.play();
   
+
 })
+
+
 
 
