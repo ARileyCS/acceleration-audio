@@ -13,29 +13,36 @@
     <i data-lucide="x"></i>
     <i data-lucide="menu"></i>
 
-    <button id="playButton">
-      <i data-lucide="play" class="w-50 h-50"></i>
-    </button>
+    <section class="flex justify-center" id="attribution">
+      <img class="w-50 h-50 self-center" src="/albumart/Aidan.jpg" alt="">
+    </section>
 
-    <a href="">
-      <i data-lucide="play" class="text-transparent fill-amber-600"></i>
-    </a>
+    <section class="flex flex-col" id="controls">
+      <button id="playButton">
+        <i data-lucide="play" class="w-10 h-10"></i>
+      </button>
 
-    <a href="">
-      <i data-lucide="play" class="text-amber-600 fill-transparent"></i>
-    </a>
+      <a class="hidden" href="">
+        <i data-lucide="play" class="text-transparent fill-amber-600"></i>
+      </a>
 
-    <!-- <div class="icon-play"></div> -->
-    <button id="pauseButton">
-      <i data-lucide="pause" class="text-transparent fill-amber-600 w-50 h-60">
-      </i>
-    </button>
+      <a class="hidden" href="">
+        <i data-lucide="play" class="text-amber-600 fill-transparent"></i>
+      </a>
 
-    <button id="pauseButton2">
-      <i data-lucide="pause" class="text-amber-600 fill-transparent"> </i>
-    </button>
+      <!-- <div class="icon-play"></div> -->
+      <button id="pauseButton">
+        <i data-lucide="pause" class="text-transparent fill-amber-600 w-10 h-10">
+        </i>
+      </button>
 
-    <p>
+      <button class="hidden" id="pauseButton2">
+        <i data-lucide="pause" class="text-amber-600 fill-transparent"> </i>
+      </button>
+    </section>
+
+
+    <p class="">
       <progress id="progress" value="0" max="1" style="width:100%"></progress>
 
       <div id="custom-progress" class="w-full h-8 bg-amber-100 trasition-all">
