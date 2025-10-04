@@ -32,6 +32,18 @@ pauseButton.addEventListener("click", () => {
   audioPlayer.pause();
 });
 
+//skip forward
+skipForwardButton.addEventListener("click", () => {
+  console.log("skip forward 10");
+  audioPlayer.currentTime += 10;
+});
+
+//skip backward
+skipBackwardButton.addEventListener("click", () => {
+  console.log("skip back 10");
+  audioPlayer.currentTime -= 10;
+});
+
 // changing the speed
 audioPlayer.addEventListener("timeupdate", () => {
   progressBar.value = audioPlayer.currentTime / audioPlayer.duration;
@@ -44,16 +56,43 @@ audioPlayer.addEventListener("timeupdate", () => {
   audioPlayer.playbackRate += 0.01;
 });
 
-// lower volume? and mute
+// keyboard shortcuts
 document.addEventListener("keydown", (event) => {
-  switch (event.key.toLowerCase()) {   
+  switch (event.key.toLowerCase()) {
+    // space to pause/play
     case " ":
       event.preventDefault();
       audioPlayer.paused ? audioPlayer.play() : audioPlayer.pause();
       break;
-
+    // m to mute
     case "m":
       audioPlayer.muted = !audioPlayer.muted;
       break;
   }
 });
+
+// had to be different because of the lowercase conversion
+document.addEventListener("keydown", (event) => {
+  switch (event.key){
+    // skip forward
+    case "ArrowRight":
+      event.preventDefault();
+      console.log("skip forward 10");
+      audioPlayer.currentTime += 10;
+      break;
+    // skip backward
+    case "ArrowLeft":
+      event.preventDefault();
+      audioPlayer.currentTime -= 10;
+      break;
+  }
+});
+
+audioPlayer.addEventListener(audioPlayer.currentTime === audioPlayer.duration, () => {
+  currentTrack += 1;
+  audioPlayer.src = `${baseURL}/${songs[currentTrack].file}`;
+  audioPlayer.load();
+  audioPlayer.play();
+})
+
+
