@@ -3,6 +3,7 @@ const playButton = document.getElementById("playButton");
 const pauseButton = document.getElementById("pauseButton");
 const progressBar = document.getElementById("progress");
 const customProgressBar = document.getElementById("custom-progress-bar");
+const speedDisplay = document.getElementById("speed");
 
 const baseURL = "/songs";
 
@@ -54,6 +55,8 @@ audioPlayer.addEventListener("timeupdate", () => {
   console.log(`${audioPlayer.currentTime} / ${audioPlayer.duration}`);
 
   audioPlayer.playbackRate += 0.01;
+
+  speedDisplay.textContent = `Current Playback Rate: ${(audioPlayer.playbackRate)}`;
 });
 
 // keyboard shortcuts
